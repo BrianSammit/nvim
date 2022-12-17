@@ -27,4 +27,5 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
-
+vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
+vim.opt.splitright = true
