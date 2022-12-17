@@ -44,4 +44,10 @@ keymap("v", "<leader>d", "\"_d", opts)
 
 keymap("i", "jk", "<Esc>", opts)
 
+--Remap ESC in terminal 
+
+keymap("t", "jk", "<C-\\><C-n>", opts)
+
 keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", opts)
+
+
