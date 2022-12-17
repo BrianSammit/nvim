@@ -17,7 +17,7 @@ autocmd("BufWinEnter", {
             vim.cmd.Git('push')
         end, opts)
 
-        -- rebase always
+        -- rebase alwaysThePrimeagen_Fugitive
         vim.keymap.set("n", "<leader>P", function()
             vim.cmd.Git({'pull',  '--rebase'})
         end, opts)
@@ -27,3 +27,4 @@ autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
     end,
 })
+
