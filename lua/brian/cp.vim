@@ -1,6 +1,6 @@
 function! TermWrapper(command) abort
 	exec 'vnew'
-    exec 'vertical resize 40'
+    exec 'vertical resize 62'
 	exec 'term ' . a:command
 	exec 'setlocal nornu nonu'
 	exec 'startinsert'
