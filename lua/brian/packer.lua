@@ -81,9 +81,13 @@ return packer.startup(function(use)
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
   use "windwp/nvim-autopairs"
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "nvim-telescope/telescope-dap.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
-    require("packer").sync()
+      require("packer").sync()
   end
 end)
