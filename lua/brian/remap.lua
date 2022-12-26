@@ -48,14 +48,16 @@ keymap("i", "jk", "<Esc>", opts)
 
 keymap("t", "jk", "<C-\\><C-n>", opts)
 
+--Change word 
+
 keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 
 -- Map for debugging
 
-keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", opts)
-keymap("n", "<F10>", ":lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<F11>", ":lua require'dap'.step_into()<CR>", opts)
-keymap("n", "<F12>", ":lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opts)
+keymap("n", "<leader>do", ":lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<leader>di", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<leader>dou", ":lua require'dap'.step_out()<CR>", opts)
 keymap("n", "<Leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 keymap("n", "<Leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 keymap("n", "<Leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
