@@ -54,12 +54,12 @@ keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
 
 -- Map for debugging
 
-keymap("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opts)
-keymap("n", "<leader>do", ":lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<leader>di", ":lua require'dap'.step_into()<CR>", opts)
-keymap("n", "<leader>dou", ":lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<leader>ll", ":lua require'dap'.continue()<CR>", opts)
+keymap("n", "<leader>lo", ":lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<leader>li", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<leader>lu", ":lua require'dap'.step_out()<CR>", opts)
 keymap("n", "<Leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 keymap("n", "<Leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 keymap("n", "<Leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
-keymap("n", "<Leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
-keymap("n", "<Leader>dl", ":lua require'dap'.run_last()<CR>", opts)
+keymap("n", "<Leader>lr", ":lua require'dap'.repl.open()<CR>", opts)
+keymap("n", "<Leader>la", ":lua require'dap'.run_last()<CR>", opts)
