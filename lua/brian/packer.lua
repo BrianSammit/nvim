@@ -93,18 +93,27 @@ return packer.startup(function(use)
     {'hrsh7th/nvim-cmp'},
     {'hrsh7th/cmp-nvim-lsp'},
     {'L3MON4D3/LuaSnip'},
+
+    {'hrsh7th/cmp-nvim-lua'},
+    {'saadparwaiz1/cmp_luasnip'},
+    {'hrsh7th/cmp-buffer'},
   }
 }
 
+  -- autopairs
 use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
 }
 
+  -- lualine
 use {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
+
+  -- friendlySnippets
+use "rafamadriz/friendly-snippets"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
