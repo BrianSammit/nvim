@@ -100,6 +100,26 @@ return packer.startup(function(use)
   }
 }
 
+  -- Snips
+
+use {
+  'hrsh7th/nvim-cmp',
+  config = function ()
+    require'cmp'.setup {
+    snippet = {
+      expand = function(args)
+        require'luasnip'.lsp_expand(args.body)
+      end
+    },
+
+    sources = {
+      { name = 'luasnip' },
+      -- more sources
+    },
+  }
+  end
+}
+
   -- autopairs
 use {
     "windwp/nvim-autopairs",
@@ -114,6 +134,15 @@ use {
 
   -- friendlySnippets
 use "rafamadriz/friendly-snippets"
+
+  -- Coment
+
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
