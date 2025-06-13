@@ -78,55 +78,47 @@ return packer.startup(function(use)
   -- Fugitive
   use 'tpope/vim-fugitive'
 
-  -- LSP zero
-  use {
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v3.x',
-  requires = {
-    --- Uncomment these if you want to manage LSP servers from neovim
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
+  -- LSP 
+  
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
 
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'L3MON4D3/LuaSnip'},
+  -- LSP Support
+  use 'neovim/nvim-lspconfig'
+  -- Autocompletion
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
 
-    {'hrsh7th/cmp-nvim-lua'},
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-buffer'},
-  }
-}
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/cmp-buffer'
 
   -- Snips
 
 use {
   'hrsh7th/nvim-cmp',
-  config = function ()
-    require'cmp'.setup {
-    snippet = {
-      expand = function(args)
-        require'luasnip'.lsp_expand(args.body)
-      end
-    },
-
-    sources = {
-      { name = 'luasnip' },
-      -- more sources
-    },
-  }
-  end
+  -- config = function ()
+  --   require'cmp'.setup {
+  --   snippet = {
+  --     expand = function(args)
+  --       require'luasnip'.lsp_expand(args.body)
+  --     end
+  --   },
+  --
+  --   sources = {
+  --     { name = 'luasnip' },
+  --     -- more sources
+  --   },
+  -- }
+  -- end
 }
 
   -- autopairs
-use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-}
+  
+use "windwp/nvim-autopairs"
 
   -- lualine
+  
 use {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -137,12 +129,25 @@ use "rafamadriz/friendly-snippets"
 
   -- Coment
 
+use "numToStr/Comment.nvim"
+
+  -- formating
+  
+
 use {
-    'numToStr/Comment.nvim',
+    "nvimdev/guard.nvim",
+    requires = {"nvimdev/guard-collection"},
+    event = "BufReadPre",
+
     config = function()
-        require('Comment').setup()
-    end
+        local ft = require("guard.filetype")
+
+        ft("c,cpp,json"):fmt("clang-format")
+
+    end,
+
 }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
