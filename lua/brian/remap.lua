@@ -51,3 +51,9 @@ keymap("t", "jk", "<C-\\><C-n>", opts)
 --Change word 
 
 keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", opts)
+
+--C++
+
+keymap('n', '<leader>cr', ':w <bar> !g++ -std=c++17 -Wall -Wextra -pedantic -o %:r % && %:r<CR>', { noremap = true, silent = false })
+keymap('n', '<leader>c', ':w <bar> !g++ -std=c++17 -Wall -Wextra -pedantic -o %:r %<CR>', { noremap = true, silent = false })
+keymap('n', '<leader>r', ':!%:r<CR>', { noremap = true, silent = false })
